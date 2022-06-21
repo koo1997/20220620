@@ -1,0 +1,29 @@
+--연관성 있는 서브쿼리
+
+SELECT
+    a.department_id,
+    a.department_name
+FROM
+    departments a
+WHERE
+    EXISTS (
+        SELECT
+            1--(true?)
+        FROM
+            job_history b
+        WHERE
+            a.department_id = b.department_id
+    );
+    
+    
+    DEPARTMENT_ID DEPARTMENT_NAME                                                                 
+------------- --------------------------------------------------------------------------------
+           20 마케팅                                                                          
+           50 배송부                                                                          
+           60 IT                                                                              
+           80 영업부                                                                          
+           90 기획부                                                                          
+          110 경리부                                                                          
+
+6개 행이 선택되었습니다. 
+

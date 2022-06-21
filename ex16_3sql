@@ -1,0 +1,74 @@
+--외부조인
+--select a.department_id,a.department_name,b.job_id,b.department_id
+--from departments a,
+--job_history b
+--where a.department_id=b.department_id(+);  --(+)기호가 붙으면 조인조건이 없어도 null값으로 표기
+                                            -- 조인조건이 더있으면 다 (+)표기
+
+--DEPARTMENT_ID DEPARTMENT_NAME                                                                  JOB_ID     DEPARTMENT_ID
+--------------- -------------------------------------------------------------------------------- ---------- -------------
+--           10 총무기획부                                                                                               
+--           20 마케팅                                                                           MK_REP                20
+--           30 구매/생산부                                                                                              
+--           40 인사부                                                                                                   
+--           50 배송부                                                                           ST_CLERK              50
+--           50 배송부                                                                           ST_CLERK              50
+--           60 IT                                                                               IT_PROG               60
+--           70 홍보부                                                                                                   
+--           80 영업부                                                                           SA_MAN                80
+--           80 영업부                                                                           SA_REP                80
+--           90 기획부                                                                           AC_ACCOUNT            90
+--
+--DEPARTMENT_ID DEPARTMENT_NAME                                                                  JOB_ID     DEPARTMENT_ID
+--------------- -------------------------------------------------------------------------------- ---------- -------------
+--           90 기획부                                                                           AD_ASST               90
+--          100 자금부                                                                                                   
+--          110 경리부                                                                           AC_MGR               110
+--          110 경리부                                                                           AC_ACCOUNT           110
+--          120 재무팀                                                                                                   
+--          130 세무팀                                                                                                   
+--          140 신용관리팀                                                                                               
+--          150 주식관리팀                                                                                               
+--          160 수익관리팀                                                                                               
+--          170 생산팀                                                                                                   
+--          180 건설팀                                                                                                   
+--
+--DEPARTMENT_ID DEPARTMENT_NAME                                                                  JOB_ID     DEPARTMENT_ID
+--------------- -------------------------------------------------------------------------------- ---------- -------------
+--          190 계약팀                                                                                                   
+--          200 운영팀                                                                                                   
+--          210 IT 지원                                                                                                  
+--          220 NOC                                                                                                      
+--          230 IT 헬프데스크                                                                                            
+--          240 공공 판매사업팀                                                                                          
+--          250 판매팀                                                                                                   
+--          260 채용팀                                                                                                   
+--          270 급여팀                                                                                                   
+--
+--31개 행이 선택되었습니다. 
+
+SELECT
+    a.department_id,
+    a.department_name,
+    b.job_id,
+    b.department_id
+FROM
+    departments a,
+    job_history b
+WHERE
+    a.department_id = b.department_id;
+
+--DEPARTMENT_ID DEPARTMENT_NAME                                                                  JOB_ID     DEPARTMENT_ID
+--------------- -------------------------------------------------------------------------------- ---------- -------------
+--           20 마케팅                                                                           MK_REP                20
+--           50 배송부                                                                           ST_CLERK              50
+--           50 배송부                                                                           ST_CLERK              50
+--           60 IT                                                                               IT_PROG               60
+--           80 영업부                                                                           SA_MAN                80
+--           80 영업부                                                                           SA_REP                80
+--           90 기획부                                                                           AC_ACCOUNT            90
+--           90 기획부                                                                           AD_ASST               90
+--          110 경리부                                                                           AC_MGR               110
+--          110 경리부                                                                           AC_ACCOUNT           110
+--
+--10개 행이 선택되었습니다. 

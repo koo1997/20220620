@@ -1,0 +1,15 @@
+--서브쿼리 (연관성 없는)
+--select,update ,delete다사용가능
+
+
+SELECT
+    COUNT(*)
+FROM
+    employees
+WHERE
+    salary >= (                             --
+        SELECT
+            AVG(salary)         -- 괄호안 select 문이 서브쿼리이다
+        FROM                    -- 메인쿼리와 연관성 xx 
+            employees
+    );                                       -- 

@@ -1,0 +1,51 @@
+--ansi 외부조인
+
+
+SELECT
+    a.employee_id,
+    a.emp_name,
+    b.job_id,
+    b.department_id
+FROM
+    employees   a
+    LEFT JOIN job_history b ON ( a.employee_id = b.employee_id
+                                 AND a.department_id = b.department_id );
+                                 
+ EMPLOYEE_ID EMP_NAME                                                                         JOB_ID     DEPARTMENT_ID
+----------- -------------------------------------------------------------------------------- ---------- -------------
+        192 Sarah Bell                                                                                               
+        158 Allan McEwen                                                                                             
+        123 Shanta Vollman                                                                                           
+        197 Kevin Feeney                                                                                             
+        174 Ellen Abel                                                                                               
+        154 Nanette Cambrault                                                                                        
+        120 Matthew Weiss                                                                                            
+        137 Renske Ladwig                                                                                            
+        149 Eleni Zlotkey                                                                                            
+
+108개 행이 선택되었습니다. 
+                                
+
+--SELECT
+--    a.employee_id,
+--    a.emp_name,
+--    b.job_id,
+--    b.department_id
+--FROM
+--    job_history b
+--    LEFT JOIN employees   a ON ( a.employee_id = b.employee_id
+--                               AND a.department_id = b.department_id );
+--EMPLOYEE_ID EMP_NAME                                                                         JOB_ID     DEPARTMENT_ID
+------------- -------------------------------------------------------------------------------- ---------- -------------
+--        201 Michael Hartstein                                                                MK_REP                20
+--        122 Payam Kaufling                                                                   ST_CLERK              50
+--        176 Jonathon Taylor                                                                  SA_MAN                80
+--        176 Jonathon Taylor                                                                  SA_REP                80
+--                                                                                             ST_CLERK              50
+--                                                                                             IT_PROG               60
+--                                                                                             AC_MGR               110
+--                                                                                             AC_ACCOUNT           110
+--                                                                                             AC_ACCOUNT            90
+--                                                                                             AD_ASST               90
+--
+--10개 행이 선택되었습니다.                                

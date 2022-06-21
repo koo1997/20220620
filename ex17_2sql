@@ -1,0 +1,23 @@
+--연관성있는 서브쿼리2
+
+SELECT
+    a.employee_id,
+    (
+        SELECT
+            b.emp_name
+        FROM
+            employees b
+        WHERE
+            a.employee_id = b.employee_id
+    ) AS emp_name,
+    a.department_id,
+    (
+        SELECT
+            b.department_name
+        FROM
+            departments b
+        WHERE
+            a.department_id = b.department_id
+    ) AS dep_name
+FROM
+    job_history a;

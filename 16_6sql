@@ -1,0 +1,18 @@
+--full outer조인
+--양쪽다(+) 하고싶을때
+--SELECT
+--    a,
+--    b
+--FROM                                    
+--    a,
+--    b
+--WHERE
+--    a (+) = b (+);          --안됨
+
+
+SELECT
+    a,
+    b
+FROM            
+    a
+    FULL OUTER JOIN b ON ( a = b ); --이게 맞는 문법

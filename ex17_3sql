@@ -1,0 +1,23 @@
+--인라인 뷰 (from 절에 select 문작성)
+
+SELECT
+    a.employee_id,
+    a.emp_name,
+    b.department_id,
+    b.department_name
+FROM
+    employees   a,
+    departments b,
+    (
+        SELECT
+            AVG(c.salary) AS avg_salary
+        FROM
+            departments b,
+            employees   c
+        WHERE
+                b.parent_id = 90
+            AND b.department_id = c.department_id
+    )           d
+WHERE
+        a.department_id = b.department_id
+    AND a.salary > d.avg_salary;
